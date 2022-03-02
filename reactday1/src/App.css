@@ -1,3 +1,6 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+
 .App {
   text-align: center;
 }
@@ -26,6 +29,15 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.bg-img{
+  background-image: url("./2.jfif");
+  background-size: cover;
+}
+
+.h-20{
+  height: 20% !important;
 }
 
 @keyframes App-logo-spin {
