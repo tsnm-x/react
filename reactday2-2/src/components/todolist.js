@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 function TodoList(props) {
     const { todoList, onTodoChange } = props;
 
