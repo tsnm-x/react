@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import {useSelector, useDispatch} from "react-redux";
 import { setFavoriteItems } from "../store/actions/fav";
+import { useEffect } from "react";
 
 function MovieCard(props) {
     
@@ -9,10 +10,16 @@ function MovieCard(props) {
     const [isSelected, setIsSelected] = useState(false);
     let favSet = useSelector((state) => state.favs);
     const dispatch = useDispatch();
+    const finder = favSet.find((item) => item.id === cardDetails.id);
+
+    useEffect(()=>{
+        if(finder){
+            setIsSelected(true);
+        }
+    }, [])
 
 
     const addFavItem = () => {
-        const finder = favSet.find((item) => item.id === cardDetails.id);
         if (finder){
             setIsSelected(false);
             favSet = favSet.filter((item) => item.id !== cardDetails.id);
