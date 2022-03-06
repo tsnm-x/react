@@ -10,11 +10,11 @@ export default function movies(state = INITIAL_STATE, action){
 
     switch(action.type){
         case GET_MOVIES:
-            console.log(action.payload?.results);
-            return {
+            return{
                 ...state,
-                movies: action.payload.results
+                movies: action.payload,
             };
+
         case GET_MOVIE:
             return {
                 ...state,

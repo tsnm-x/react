@@ -2,7 +2,7 @@ import {useSelector} from "react-redux";
 import FavCard from "./favCard";
 
 function Favorites(){
-    const favSet = useSelector((state) => state.favs);
+    const favSet = useSelector((state) => state.fav.favs);
 
 
     return(

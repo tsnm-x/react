@@ -5,7 +5,7 @@ function FavCard(props) {
     
     const {cardDetails} = props;
 
-    const favSet = useSelector((state) => state.favs);
+    const favSet = useSelector((state) => state.fav.favs );
     const dispatch = useDispatch();
 
     const removeFavItem = () => {

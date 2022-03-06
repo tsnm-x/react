@@ -1,36 +1,29 @@
 import MovieCard from "./movie-card";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovies, getOneMovie } from "../store/actions/movies";
-import { setFavoriteItems } from "../store/actions/fav";
+import { getMovies } from "../store/actions/movies";
 
 
 function MovieList() {
 
-    const cards = useSelector((state)=> state.movies.movies);
+    const cards = useSelector((state)=> state.movies.movies );
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(cards);
+        
         dispatch(getMovies());
- 
-    
 
     }, []);
 
-
-
-
     return (
         <>
-            <div className="row row-cols-4 justify-content-evenly">
-                {/* {cards.map((card) => {
-                    return <div className="col m-3" key={card.id}>
-                        <MovieCard cardDetails={card}  />
-                    </div>
-                })} */}
-                <div>{cards}</div>
-            </div>
+
+            {cards.map((card) => {
+                return <div className="col m-3" key={card.id}>
+                    <MovieCard cardDetails={card}  />
+                </div>
+            })}
+            
         </>
     )
 }

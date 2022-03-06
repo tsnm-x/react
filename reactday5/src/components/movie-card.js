@@ -7,13 +7,16 @@ import { useEffect } from "react";
 function MovieCard(props) {
     
     const {cardDetails} = props;
+
     const [isSelected, setIsSelected] = useState(false);
-    let favSet = useSelector((state) => state.favs);
+
+    let favSet = useSelector((state) => state.fav.favs );
     const dispatch = useDispatch();
-    const finder = favSet.find((item) => item.id === cardDetails.id);
+
+    const finder = favSet ? favSet.find((item) => item.id === cardDetails.id) : undefined;
 
     useEffect(()=>{
-        console.log(cardDetails);
+
         if(finder){
             setIsSelected(true);
         }
