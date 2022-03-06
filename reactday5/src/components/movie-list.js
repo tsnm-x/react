@@ -7,13 +7,14 @@ import { setFavoriteItems } from "../store/actions/fav";
 
 function MovieList() {
 
-    const cards = useSelector((state)=> state);
-    console.log(cards);
+    const cards = useSelector((state)=> state.movies.movies);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        
-        dispatch(setFavoriteItems());
+        console.log(cards);
+        dispatch(getMovies());
+ 
+    
 
     }, []);
 
