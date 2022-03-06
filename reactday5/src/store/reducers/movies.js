@@ -1,4 +1,4 @@
-import { GET_MOVIES, GET_MOVIE } from "../actions/movies";
+import { GET_MOVIES, GET_MOVIE, CHANGE_LANG } from "../actions/movies";
 
 const INITIAL_STATE = {
     movies: [],

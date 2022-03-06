@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { LanguageChanger } from "../context/languageChanger";
+import { useContext } from "react";
+
 
 function Navbar() {
+    const {language, setLanguage} = useContext(LanguageChanger);
 
     const [active, setActive] = useState("0");
     
@@ -26,6 +30,14 @@ function Navbar() {
         }
     }
 
+    const switchLanguage = ()=> {
+        if (language === "en"){
+            setLanguage("ar")
+        } else {
+            setLanguage("en");
+        }
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -40,6 +52,7 @@ function Navbar() {
                         </li>
                     </ul>
                     <div className="d-flex">
+                        <button onClick={()=> switchLanguage()} className="btn btn-outline-info mx-1">{language}</button>
                         <Link to={'/login'} onClick={(e)=> activateLink(e)} className={`btn btn-outline-light mx-1 ${active === "2" ? 'active' : ''}`}>Login</Link>
                         <Link to={'/register'} onClick={(e)=> activateLink(e)} className={`btn btn-outline-light mx-1 ${active === "3" ? 'active' : ''}`}>Register</Link>
                     </div>
